@@ -26,10 +26,10 @@ int main()
     int i = 72;
 
     gfx_open(XSIZE, YSIZE, "It's Raining Men!"); // Open a new window for drawing.
-    gfx_color(255, 255, 255);
-    gfx_text(25, 225, "Use the left and right arrow keys to move the man.");
-    gfx_text(175, 235, "Avoid... the raining men! Hallelujah!");
-    man(RADIUS, x, TOPPOS); // Make watch
+    gfx_color(200, 200, 0);
+    gfx_text(200, 200, "Use the left and right arrow keys to move the man.");
+    gfx_text(240, 225, "Avoid... the raining men! Hallelujah!");
+    man(SIZE, x, y); // Make watch
 
     c = gfx_wait();
     gfx_flush();
@@ -48,7 +48,7 @@ int main()
         else if (c == 'S')
         {
             x = x + 25;
-            man(SIZE, x + 25, y);
+            man(SIZE, x, y);
         }
         else if (c == 'q')
         {
