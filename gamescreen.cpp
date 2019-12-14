@@ -63,4 +63,10 @@ void Gamescreen::showGameover(char c)
 
 void Gamescreen::showScore()
 {
+    gfx_color(200, 200, 0);
+    gfx_circle(350, 190, 40);
+    gfx_color(0, 255, 0);
+    gfx_circle(350, 190, 50);
+    gfx_color(255, 255, 255);
+    gfx_text(340, 180, "Score");
 }

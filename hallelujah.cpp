@@ -18,7 +18,6 @@ using namespace std;
 
 void man(const int, int, int);
 void rain_man(const int, int, int);
-void scoresheet();
 bool collide(int, int, int, int);
 
 int main()
@@ -51,15 +50,11 @@ int main()
         {
             gfx_clear();
             c = gfx_wait();
-            scoresheet();
-            gfx_color(255, 255, 255);
-            gfx_text(340, 180, "Score");
+            Mainscreen.showScore();
             gfx_text(350, 200, pchar);
             if (c == 'Q') // On left click, change direction of hand
             {
-                scoresheet();
-                gfx_color(255, 255, 255);
-                gfx_text(340, 180, "Score");
+                Mainscreen.showScore();
                 gfx_text(350, 200, pchar);
                 x -= 100;
                 if (x < 0)
@@ -171,9 +166,7 @@ int main()
             }
             else if (c == 'S')
             {
-                scoresheet();
-                gfx_color(255, 255, 255);
-                gfx_text(340, 180, "Score");
+                Mainscreen.showScore();
                 gfx_text(350, 200, pchar);
                 x += 100;
                 if (x > 700)
@@ -292,9 +285,7 @@ int main()
         else
         {
             gfx_clear();
-            scoresheet();
-            gfx_color(255, 255, 255);
-            gfx_text(340, 180, "Score");
+            Mainscreen.showScore();
             gfx_text(350, 200, pchar);
             man(SIZE, x, y); // Make watch
             for (int i = 0; i < 7; i++)
@@ -404,13 +395,4 @@ bool collide(int xa, int ya, int x, int y)
     if (x <= xa + RADIUS && x >= xa - RADIUS && y <= ya + RADIUS && y >= ya - RADIUS)
         return true;
     return false;
-}
-
-// Display score styling
-void scoresheet()
-{
-    gfx_color(200, 200, 0);
-    gfx_circle(350, 190, 40);
-    gfx_color(0, 255, 0);
-    gfx_circle(350, 190, 50);
 }
