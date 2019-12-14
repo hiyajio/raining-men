@@ -333,6 +333,14 @@ void raining_man(const int SIZE, int x, int y)
     gfx_circle(x, y, SIZE / 2);
 }
 
+// Checks to see if there was an impact
+bool impact(int xa, int ya, int x, int y)
+{
+    if (x <= xa + RADIUS && x >= xa - RADIUS && y <= ya + RADIUS && y >= ya - RADIUS)
+        return true;
+    return false;
+}
+
 void menu(char c)
 {
     gfx_color(200, 200, 0);
@@ -382,12 +390,4 @@ void gameover(char c)
     {
         exit(0);
     }
-}
-
-// Checks to see if there was an impact
-bool impact(int xa, int ya, int x, int y)
-{
-    if (x <= xa + RADIUS && x >= xa - RADIUS && y <= ya + RADIUS && y >= ya - RADIUS)
-        return true;
-    return false;
 }
