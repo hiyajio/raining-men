@@ -16,4 +16,7 @@ class Gamescreen
 public:
     Gamescreen();
     ~Gamescreen();
+    void showMenu();
+    void showGameover();
+    void showScore();
 };

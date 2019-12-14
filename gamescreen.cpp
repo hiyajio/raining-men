@@ -21,3 +21,15 @@ Gamescreen::Gamescreen()
 Gamescreen::~Gamescreen()
 {
 }
+
+void Gamescreen::showMenu()
+{
+}
+
+void Gamescreen::showGameover()
+{
+}
+
+void Gamescreen::showScore()
+{
+}

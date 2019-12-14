@@ -25,6 +25,7 @@ bool collide(int, int, int, int);
 
 int main()
 {
+    Gamescreen Mainscreen;
     unsigned int delay = 12000;
     char c;
     int x = 350, y = 450, a, b, counter = 0, score = 0, response, restart = 50;
