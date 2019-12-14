@@ -21,7 +21,7 @@ void raining_man(const int, int, int);
 void menu(char);
 void gameover(char);
 void scoresheet();
-bool impact(int, int, int, int);
+bool collide(int, int, int, int);
 
 #define PI 3.14159265
 #define RADIUS 60
@@ -140,7 +140,7 @@ int main()
                     }
                     else
                     {
-                        if (impact(rainMen[i], speed[i], x, y) == true)
+                        if (collide(rainMen[i], speed[i], x, y) == true)
                         {
                             gfx_clear();
                             gfx_flush();
@@ -252,7 +252,7 @@ int main()
                     }
                     else
                     {
-                        if (impact(rainMen[i], speed[i], x, y) == true)
+                        if (collide(rainMen[i], speed[i], x, y) == true)
                         {
                             gfx_clear();
                             gfx_flush();
@@ -346,7 +346,7 @@ int main()
                 }
                 else
                 {
-                    if (impact(rainMen[i], speed[i], x, y) == true)
+                    if (collide(rainMen[i], speed[i], x, y) == true)
                     {
                         gfx_clear();
                         gfx_flush();
@@ -388,6 +388,7 @@ int main()
     } while (play);
 }
 
+// Make playable character
 void man(const int SIZE, int x, int y)
 {
     gfx_color(0, 200, 200);
@@ -395,6 +396,7 @@ void man(const int SIZE, int x, int y)
     gfx_fill_circle(x, y - 50, SIZE / 2);
 }
 
+// Make raining men
 void raining_man(const int SIZE, int x, int y)
 {
     gfx_color(200, 100, 0);
@@ -402,14 +404,15 @@ void raining_man(const int SIZE, int x, int y)
     gfx_fill_circle(x, y, SIZE / 2);
 }
 
-// Checks to see if there was an impact
-bool impact(int xa, int ya, int x, int y)
+// Check for collision
+bool collide(int xa, int ya, int x, int y)
 {
     if (x <= xa + RADIUS && x >= xa - RADIUS && y <= ya + RADIUS && y >= ya - RADIUS)
         return true;
     return false;
 }
 
+// Display starting menu
 void menu(char c)
 {
     gfx_color(255, 255, 255);
@@ -432,6 +435,7 @@ void menu(char c)
     }
 }
 
+// Display gameover screen
 void gameover(char c)
 {
     gfx_color(255, 255, 255);
@@ -451,6 +455,7 @@ void gameover(char c)
     }
 }
 
+// Display score styling
 void scoresheet()
 {
     gfx_color(200, 200, 0);
