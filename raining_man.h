@@ -9,6 +9,7 @@ class Rainman
 { // Class interface of Lifeboard
 public:
     Rainman();
+    Rainman(int x);
     ~Rainman();
-    void show();
+    void show(int x, int y);
 };

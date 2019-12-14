@@ -4,7 +4,7 @@
  * Description: Class interface for Crossboard class
  */
 #include <iostream>
-#include "gfx.h"
+#include "gfx2.h"
 #include <unistd.h>
 #include <stdlib.h>
 #include <cstdlib>
@@ -16,8 +16,20 @@ using namespace std;
 
 Rainman::Rainman()
 {
-    x = 50;
-    y = 25;
+    int x = 50;
+    int y = 25;
+    gfx_color(0, 200, 200);
+    gfx_line((x - (SIZE / 2)), (y + (SIZE / 2) - SIZE), (x + (SIZE / 2)), (y + (SIZE / 2) - SIZE));
+    gfx_line((x + (SIZE / 2)), (y + (SIZE / 2) - SIZE), (x + (SIZE / 2)), (y - (SIZE / 2) - SIZE));
+    gfx_line((x - (SIZE / 2)), (y - (SIZE / 2) - SIZE), (x + (SIZE / 2)), (y - (SIZE / 2) - SIZE));
+    gfx_line((x - (SIZE / 2)), (y + (SIZE / 2) - SIZE), (x - (SIZE / 2)), (y - (SIZE / 2) - SIZE));
+    gfx_circle(x, y, SIZE / 2);
+    gfx_circle(x, y, SIZE / 2);
+}
+
+Rainman::Rainman(int x)
+{
+    int y = 25;
     gfx_color(0, 200, 200);
     gfx_line((x - (SIZE / 2)), (y + (SIZE / 2) - SIZE), (x + (SIZE / 2)), (y + (SIZE / 2) - SIZE));
     gfx_line((x + (SIZE / 2)), (y + (SIZE / 2) - SIZE), (x + (SIZE / 2)), (y - (SIZE / 2) - SIZE));
@@ -31,7 +43,7 @@ Rainman::~Rainman()
 {
 }
 
-void Rainman::show()
+void Rainman::show(int x, int y)
 {
     y = y + 25;
     gfx_color(0, 200, 200);
