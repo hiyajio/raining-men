@@ -1,7 +1,7 @@
 /* Developer: Juan Sergio Buenviaje
  * Lab: Tuesdays 2:25 - 3:15pm
  * Program: hallelujah.cpp
- * Description: Inspired by the 1980's classic song "It's Raining Men" by The Weather Girls, this game is essentially what that would look like in reality (Best played when song is also playing in the background).
+ * Description: Inspired by the 1980's classic song "It's Raining Men" by The Weather Girls, this game is essentially what that would look like in reality (Best played when song is also play in the background).
  */
 #include <iostream>
 #include "gfx2.h"
@@ -18,18 +18,24 @@ using namespace std;
 
 void man(const int, int, int);
 void raining_man(const int, int, int);
-void menu(const int, const int, const int, int, int, char);
+void menu(char);
+void gameover(char);
 bool impact(int, int, int, int);
 
 #define PI 3.14159265
 #define RADIUS 60
+#define SZSTART 50
+#define XSIZE 700
+#define YSIZE 500
+#define XSTART 350
+#define YSTART 450
 
 int main()
 {
-    const int XSIZE = 700, YSIZE = 500, SIZE = 50;
+    const int SIZE = 50;
     unsigned int delay = 10000;
     char c;
-    int x = 350, y = 450, a, b, counter = 0, score = 0, response;
+    int x = 350, y = 450, a, b, counter = 0, score = 0, response, restart = 50;
     string sc = to_string(score);
     char const *pchar = sc.c_str();
     bool play = true;
@@ -44,9 +50,9 @@ int main()
     gfx_open(XSIZE, YSIZE, "It's Raining Men!"); // Open a new window for drawing.
     gfx_color(200, 200, 0);
 
-    menu(SIZE, XSIZE, YSIZE, x, y, c);
+    menu(c);
 
-    while (true)
+    do
     {
         response = gfx_event_waiting();
         man(SIZE, x, y); // Make watch
@@ -97,7 +103,37 @@ int main()
                     {
                         if (impact(rainMen[i], speed[i], x, y) == true)
                         {
-                            return 0;
+                            gfx_clear();
+                            gfx_flush();
+                            gfx_color(255, 255, 255);
+                            gfx_text(240, 225, "Score");
+                            gfx_text(240, 250, pchar);
+                            gameover(c);
+                            do
+                            {
+                                c = gfx_wait();
+                                if (c == 32)
+                                {
+                                    counter = 0;
+                                    score = 0;
+                                    sc = to_string(score);
+                                    pchar = sc.c_str();
+                                    for (int i = 0; i < 7; i++)
+                                    {
+                                        rainMen[i] = restart;
+                                        restart += 100;
+                                        speed[i] = 25;
+                                    }
+                                    x = 350;
+                                    y = 450;
+                                    restart = 50;
+                                    a = rand() % 7 + 1;
+                                    b = rand() % 7;
+                                    play = true;
+                                }
+                                if (c == 'q')
+                                    play = false;
+                            } while (c != 32 && c != 'q');
                         }
                         raining_man(SIZE, rainMen[i], speed[i]);
                     }
@@ -143,7 +179,37 @@ int main()
                     {
                         if (impact(rainMen[i], speed[i], x, y) == true)
                         {
-                            return 0;
+                            gfx_clear();
+                            gfx_flush();
+                            gfx_color(255, 255, 255);
+                            gfx_text(240, 225, "Score");
+                            gfx_text(240, 250, pchar);
+                            gameover(c);
+                            do
+                            {
+                                c = gfx_wait();
+                                if (c == 32)
+                                {
+                                    counter = 0;
+                                    score = 0;
+                                    sc = to_string(score);
+                                    pchar = sc.c_str();
+                                    for (int i = 0; i < 7; i++)
+                                    {
+                                        rainMen[i] = restart;
+                                        restart += 100;
+                                        speed[i] = 25;
+                                    }
+                                    x = 350;
+                                    y = 450;
+                                    restart = 50;
+                                    a = rand() % 7 + 1;
+                                    b = rand() % 7;
+                                    play = true;
+                                }
+                                if (c == 'q')
+                                    play = false;
+                            } while (c != 32 && c != 'q');
                         }
                         raining_man(SIZE, rainMen[i], speed[i]);
                     }
@@ -205,14 +271,44 @@ int main()
                 {
                     if (impact(rainMen[i], speed[i], x, y) == true)
                     {
-                        return 0;
+                        gfx_clear();
+                        gfx_flush();
+                        gfx_color(255, 255, 255);
+                        gfx_text(240, 225, "Score");
+                        gfx_text(240, 250, pchar);
+                        gameover(c);
+                        do
+                        {
+                            c = gfx_wait();
+                            if (c == 32)
+                            {
+                                counter = 0;
+                                score = 0;
+                                sc = to_string(score);
+                                pchar = sc.c_str();
+                                for (int i = 0; i < 7; i++)
+                                {
+                                    rainMen[i] = restart;
+                                    restart += 100;
+                                    speed[i] = 25;
+                                }
+                                x = 350;
+                                y = 450;
+                                restart = 50;
+                                a = rand() % 7 + 1;
+                                b = rand() % 7;
+                                play = true;
+                            }
+                            if (c == 'q')
+                                play = false;
+                        } while (c != 32 && c != 'q');
                     }
                     raining_man(SIZE, rainMen[i], speed[i]);
                 }
             }
             usleep(delay);
         }
-    }
+    } while (play);
 }
 
 void man(const int SIZE, int x, int y)
@@ -237,8 +333,9 @@ void raining_man(const int SIZE, int x, int y)
     gfx_circle(x, y, SIZE / 2);
 }
 
-void menu(const int SIZE, const int XSIZE, const int YSIZE, int x, int y, char c)
+void menu(char c)
 {
+    gfx_color(200, 200, 0);
     gfx_line(150, 150, 550, 150);
     gfx_line(550, 150, 550, 300);
     gfx_line(550, 300, 150, 300);
@@ -251,7 +348,32 @@ void menu(const int SIZE, const int XSIZE, const int YSIZE, int x, int y, char c
     gfx_color(200, 200, 0);
     gfx_text(200, 200, "Use the left and right arrow keys to move the man.");
     gfx_text(240, 225, "Avoid... the raining men! Hallelujah!");
-    man(SIZE, x, y); // Make watch
+    man(SIZE, XSTART, YSTART); // Make watch
+
+    c = gfx_wait();
+    gfx_flush();
+
+    if (c == 'q')
+    {
+        exit(0);
+    }
+}
+
+void gameover(char c)
+{
+    gfx_color(200, 200, 0);
+    gfx_line(150, 150, 550, 150);
+    gfx_line(550, 150, 550, 300);
+    gfx_line(550, 300, 150, 300);
+    gfx_line(150, 300, 150, 150);
+    gfx_color(255, 255, 255);
+    gfx_line(175, 175, 525, 175);
+    gfx_line(525, 175, 525, 275);
+    gfx_line(525, 275, 175, 275);
+    gfx_line(175, 275, 175, 175);
+    gfx_color(200, 200, 0);
+    gfx_text(200, 200, "Gameover! Press spacebar twice to restart");
+    man(SIZE, XSTART, YSTART); // Make watch
 
     c = gfx_wait();
     gfx_flush();
