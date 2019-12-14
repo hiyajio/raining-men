@@ -58,7 +58,7 @@ int main()
                 Mainscreen.showScore();
                 gfx_text(347, 205, pchar);
                 x -= 100;
-                if (x < 0)
+                if (x < 0) // Off screen (left)
                 {
                     // Gameover sequence
                     gfx_clear();
@@ -173,7 +173,7 @@ int main()
                 Mainscreen.showScore();
                 gfx_text(347, 205, pchar);
                 x += 100;
-                if (x > 700)
+                if (x > 700) // Off screen (right)
                 {
                     // Gameover sequence
                     gfx_clear();
