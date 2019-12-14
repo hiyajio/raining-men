@@ -16,7 +16,7 @@ class Gamescreen
 public:
     Gamescreen();
     ~Gamescreen();
-    void showMenu();
+    void showMenu(char c);
     void showGameover();
     void showScore();
 };

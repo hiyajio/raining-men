@@ -18,7 +18,6 @@ using namespace std;
 
 void man(const int, int, int);
 void rain_man(const int, int, int);
-void menu(char);
 void gameover(char);
 void scoresheet();
 bool collide(int, int, int, int);
@@ -41,7 +40,8 @@ int main()
     gfx_open(XSIZE, YSIZE, "It's Raining Men!"); // Open a new window for drawing.
     gfx_color(200, 200, 0);
 
-    menu(c);
+    man(SIZE, XSTART, YSTART);
+    Mainscreen.showMenu(c);
 
     do
     {
@@ -400,29 +400,6 @@ bool collide(int xa, int ya, int x, int y)
     if (x <= xa + RADIUS && x >= xa - RADIUS && y <= ya + RADIUS && y >= ya - RADIUS)
         return true;
     return false;
-}
-
-// Display starting menu
-void menu(char c)
-{
-    gfx_color(255, 255, 255);
-    gfx_rectangle(125, 125, 450, 200);
-    gfx_color(200, 200, 0);
-    gfx_fill_rectangle(150, 150, 400, 150);
-    gfx_color(0, 0, 0);
-    gfx_fill_rectangle(175, 175, 350, 100);
-    gfx_color(0, 200, 200);
-    gfx_text(200, 200, "Use the left and right arrow keys to move the man.");
-    gfx_text(240, 225, "Avoid... the raining men! Hallelujah!");
-    man(SIZE, XSTART, YSTART); // Make watch
-
-    c = gfx_wait();
-    gfx_flush();
-
-    if (c == 'q')
-    {
-        exit(0);
-    }
 }
 
 // Display gameover screen
