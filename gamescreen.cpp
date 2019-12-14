@@ -43,8 +43,22 @@ void Gamescreen::showMenu(char c)
     }
 }
 
-void Gamescreen::showGameover()
+void Gamescreen::showGameover(char c)
 {
+    gfx_color(255, 255, 255);
+    gfx_rectangle(125, 125, 450, 200);
+    gfx_color(200, 200, 0);
+    gfx_rectangle(150, 150, 400, 150);
+    gfx_color(255, 0, 0);
+    gfx_text(200, 200, "Gameover! Press spacebar twice to restart");
+
+    c = gfx_wait();
+    gfx_flush();
+
+    if (c == 'q')
+    {
+        exit(0);
+    }
 }
 
 void Gamescreen::showScore()

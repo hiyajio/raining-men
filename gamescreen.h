@@ -17,6 +17,6 @@ public:
     Gamescreen();
     ~Gamescreen();
     void showMenu(char c);
-    void showGameover();
+    void showGameover(char c);
     void showScore();
 };

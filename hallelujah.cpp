@@ -18,7 +18,6 @@ using namespace std;
 
 void man(const int, int, int);
 void rain_man(const int, int, int);
-void gameover(char);
 void scoresheet();
 bool collide(int, int, int, int);
 
@@ -70,7 +69,8 @@ int main()
                     gfx_color(255, 255, 255);
                     gfx_text(240, 225, "Score");
                     gfx_text(240, 250, pchar);
-                    gameover(c);
+                    man(SIZE, XSTART, YSTART); // Make watch
+                    Mainscreen.showGameover(c);
                     do
                     {
                         c = gfx_wait();
@@ -137,7 +137,8 @@ int main()
                             gfx_color(255, 255, 255);
                             gfx_text(240, 225, "Score");
                             gfx_text(240, 250, pchar);
-                            gameover(c);
+                            man(SIZE, XSTART, YSTART); // Make watch
+                            Mainscreen.showGameover(c);
                             do
                             {
                                 c = gfx_wait();
@@ -182,7 +183,8 @@ int main()
                     gfx_color(255, 255, 255);
                     gfx_text(240, 225, "Score");
                     gfx_text(240, 250, pchar);
-                    gameover(c);
+                    man(SIZE, XSTART, YSTART); // Make watch
+                    Mainscreen.showGameover(c);
                     do
                     {
                         c = gfx_wait();
@@ -249,7 +251,8 @@ int main()
                             gfx_color(255, 255, 255);
                             gfx_text(240, 225, "Score");
                             gfx_text(240, 250, pchar);
-                            gameover(c);
+                            man(SIZE, XSTART, YSTART); // Make watch
+                            Mainscreen.showGameover(c);
                             do
                             {
                                 c = gfx_wait();
@@ -343,7 +346,8 @@ int main()
                         gfx_color(255, 255, 255);
                         gfx_text(240, 225, "Score");
                         gfx_text(240, 250, pchar);
-                        gameover(c);
+                        man(SIZE, XSTART, YSTART); // Make watch
+                        Mainscreen.showGameover(c);
                         do
                         {
                             c = gfx_wait();
@@ -400,26 +404,6 @@ bool collide(int xa, int ya, int x, int y)
     if (x <= xa + RADIUS && x >= xa - RADIUS && y <= ya + RADIUS && y >= ya - RADIUS)
         return true;
     return false;
-}
-
-// Display gameover screen
-void gameover(char c)
-{
-    gfx_color(255, 255, 255);
-    gfx_rectangle(125, 125, 450, 200);
-    gfx_color(200, 200, 0);
-    gfx_rectangle(150, 150, 400, 150);
-    gfx_color(255, 0, 0);
-    gfx_text(200, 200, "Gameover! Press spacebar twice to restart");
-    man(SIZE, XSTART, YSTART); // Make watch
-
-    c = gfx_wait();
-    gfx_flush();
-
-    if (c == 'q')
-    {
-        exit(0);
-    }
 }
 
 // Display score styling
