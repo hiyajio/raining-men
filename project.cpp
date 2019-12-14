@@ -1,6 +1,6 @@
 /* Developer: Juan Sergio Buenviaje
  * Lab: Tuesdays 2:25 - 3:15pm
- * Program: hallelujah.cpp
+ * Program: project.cpp
  * Description: Inspired by the 1980's classic song "It's Raining Men" by The Weather Girls, this game is essentially what that would look like in reality (Best played when song is also play in the background).
  */
 #include <iostream>
