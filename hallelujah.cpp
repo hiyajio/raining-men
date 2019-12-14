@@ -23,17 +23,8 @@ void gameover(char);
 void scoresheet();
 bool collide(int, int, int, int);
 
-#define PI 3.14159265
-#define RADIUS 60
-#define SZSTART 50
-#define XSIZE 700
-#define YSIZE 500
-#define XSTART 350
-#define YSTART 450
-
 int main()
 {
-    const int SIZE = 50;
     unsigned int delay = 12000;
     char c;
     int x = 350, y = 450, a, b, counter = 0, score = 0, response, restart = 50;
