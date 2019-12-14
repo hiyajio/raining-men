@@ -61,8 +61,6 @@ int main()
                 {
                     gfx_clear();
                     gfx_flush();
-                    gfx_color(255, 255, 255);
-                    gfx_text(240, 225, "Score");
                     gfx_text(240, 250, pchar);
                     man(SIZE, XSTART, YSTART); // Make watch
                     Mainscreen.showGameover(c);
@@ -129,8 +127,6 @@ int main()
                         {
                             gfx_clear();
                             gfx_flush();
-                            gfx_color(255, 255, 255);
-                            gfx_text(240, 225, "Score");
                             gfx_text(240, 250, pchar);
                             man(SIZE, XSTART, YSTART); // Make watch
                             Mainscreen.showGameover(c);
@@ -173,8 +169,6 @@ int main()
                 {
                     gfx_clear();
                     gfx_flush();
-                    gfx_color(255, 255, 255);
-                    gfx_text(240, 225, "Score");
                     gfx_text(240, 250, pchar);
                     man(SIZE, XSTART, YSTART); // Make watch
                     Mainscreen.showGameover(c);
@@ -241,8 +235,6 @@ int main()
                         {
                             gfx_clear();
                             gfx_flush();
-                            gfx_color(255, 255, 255);
-                            gfx_text(240, 225, "Score");
                             gfx_text(240, 250, pchar);
                             man(SIZE, XSTART, YSTART); // Make watch
                             Mainscreen.showGameover(c);
@@ -334,8 +326,6 @@ int main()
                     {
                         gfx_clear();
                         gfx_flush();
-                        gfx_color(255, 255, 255);
-                        gfx_text(240, 225, "Score");
                         gfx_text(240, 250, pchar);
                         man(SIZE, XSTART, YSTART); // Make watch
                         Mainscreen.showGameover(c);

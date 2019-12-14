@@ -46,6 +46,8 @@ void Gamescreen::showMenu(char c)
 void Gamescreen::showGameover(char c)
 {
     gfx_color(255, 255, 255);
+    gfx_text(240, 225, "Score");
+    gfx_color(255, 255, 255);
     gfx_rectangle(125, 125, 450, 200);
     gfx_color(200, 200, 0);
     gfx_rectangle(150, 150, 400, 150);
