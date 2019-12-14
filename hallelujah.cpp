@@ -20,6 +20,7 @@ void man(const int, int, int);
 void raining_man(const int, int, int);
 void menu(char);
 void gameover(char);
+void scoresheet();
 bool impact(int, int, int, int);
 
 #define PI 3.14159265
@@ -33,7 +34,7 @@ bool impact(int, int, int, int);
 int main()
 {
     const int SIZE = 50;
-    unsigned int delay = 10000;
+    unsigned int delay = 12000;
     char c;
     int x = 350, y = 450, a, b, counter = 0, score = 0, response, restart = 50;
     string sc = to_string(score);
@@ -61,10 +62,14 @@ int main()
         {
             gfx_clear();
             c = gfx_wait();
+            scoresheet();
+            gfx_color(255, 255, 255);
             gfx_text(340, 180, "Score");
             gfx_text(350, 200, pchar);
             if (c == 'Q') // On left click, change direction of hand
             {
+                scoresheet();
+                gfx_color(255, 255, 255);
                 gfx_text(340, 180, "Score");
                 gfx_text(350, 200, pchar);
                 x -= 100;
@@ -175,6 +180,8 @@ int main()
             }
             else if (c == 'S')
             {
+                scoresheet();
+                gfx_color(255, 255, 255);
                 gfx_text(340, 180, "Score");
                 gfx_text(350, 200, pchar);
                 x += 100;
@@ -292,6 +299,8 @@ int main()
         else
         {
             gfx_clear();
+            scoresheet();
+            gfx_color(255, 255, 255);
             gfx_text(340, 180, "Score");
             gfx_text(350, 200, pchar);
             man(SIZE, x, y); // Make watch
@@ -429,7 +438,7 @@ void gameover(char c)
     gfx_rectangle(125, 125, 450, 200);
     gfx_color(200, 200, 0);
     gfx_rectangle(150, 150, 400, 150);
-    gfx_color(0, 200, 200);
+    gfx_color(255, 0, 0);
     gfx_text(200, 200, "Gameover! Press spacebar twice to restart");
     man(SIZE, XSTART, YSTART); // Make watch
 
@@ -440,4 +449,12 @@ void gameover(char c)
     {
         exit(0);
     }
+}
+
+void scoresheet()
+{
+    gfx_color(200, 200, 0);
+    gfx_circle(350, 190, 40);
+    gfx_color(0, 255, 0);
+    gfx_circle(350, 190, 50);
 }
