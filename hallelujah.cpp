@@ -23,6 +23,9 @@ bool collide(int, int, int, int);
 int main()
 {
     Gamescreen Mainscreen;
+    char newfont[] =
+        "-misc-fixed-medium-r-normal--14-*-*-*-*-*-iso8859-1";
+    gfx_changefont(newfont);
     unsigned int delay = 12000;
     char c;
     int x = 350, y = 450, a, b, counter = 0, score = 0, response, restart = 50;
@@ -48,17 +51,18 @@ int main()
             gfx_clear();
             c = gfx_wait();
             Mainscreen.showScore();
-            gfx_text(350, 200, pchar);
+            gfx_text(347, 205, pchar);
             if (c == 'Q') // On left click, change direction of hand
             {
                 Mainscreen.showScore();
-                gfx_text(350, 200, pchar);
+                gfx_text(347, 205, pchar);
                 x -= 100;
                 if (x < 0)
                 {
                     gfx_clear();
                     gfx_flush();
-                    gfx_text(240, 250, pchar);
+                    gfx_color(255, 255, 255);
+                    gfx_text(350, 250, pchar);
                     man(SIZE, XSTART, YSTART); // Make watch
                     Mainscreen.showGameover(c);
                     do
@@ -124,7 +128,8 @@ int main()
                         {
                             gfx_clear();
                             gfx_flush();
-                            gfx_text(240, 250, pchar);
+                            gfx_color(255, 255, 255);
+                            gfx_text(350, 250, pchar);
                             man(SIZE, XSTART, YSTART); // Make watch
                             Mainscreen.showGameover(c);
                             do
@@ -160,13 +165,14 @@ int main()
             else if (c == 'S')
             {
                 Mainscreen.showScore();
-                gfx_text(350, 200, pchar);
+                gfx_text(347, 205, pchar);
                 x += 100;
                 if (x > 700)
                 {
                     gfx_clear();
                     gfx_flush();
-                    gfx_text(240, 250, pchar);
+                    gfx_color(255, 255, 255);
+                    gfx_text(350, 250, pchar);
                     man(SIZE, XSTART, YSTART); // Make watch
                     Mainscreen.showGameover(c);
                     do
@@ -232,7 +238,8 @@ int main()
                         {
                             gfx_clear();
                             gfx_flush();
-                            gfx_text(240, 250, pchar);
+                            gfx_color(255, 255, 255);
+                            gfx_text(350, 250, pchar);
                             man(SIZE, XSTART, YSTART); // Make watch
                             Mainscreen.showGameover(c);
                             do
@@ -275,7 +282,7 @@ int main()
         {
             gfx_clear();
             Mainscreen.showScore();
-            gfx_text(350, 200, pchar);
+            gfx_text(347, 205, pchar);
             man(SIZE, x, y); // Make watch
             for (int i = 0; i < 7; i++)
             {
@@ -323,7 +330,8 @@ int main()
                     {
                         gfx_clear();
                         gfx_flush();
-                        gfx_text(240, 250, pchar);
+                        gfx_color(255, 255, 255);
+                        gfx_text(350, 250, pchar);
                         man(SIZE, XSTART, YSTART); // Make watch
                         Mainscreen.showGameover(c);
                         do
