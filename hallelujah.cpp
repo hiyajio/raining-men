@@ -14,6 +14,7 @@
 #include <string>
 using namespace std;
 
+// Connect needed external file
 #include "gamescreen.h"
 
 void man(const int, int, int);
@@ -22,7 +23,7 @@ bool collide(int, int, int, int);
 
 int main()
 {
-    Gamescreen Mainscreen;
+    Gamescreen Mainscreen; // Instantiate screen
     char newfont[] =
         "-misc-fixed-medium-r-normal--14-*-*-*-*-*-iso8859-1";
     gfx_changefont(newfont);
@@ -44,7 +45,7 @@ int main()
     do
     {
         response = gfx_event_waiting();
-        man(SIZE, x, y); // Make watch
+        man(SIZE, x, y); // Make playable character
 
         if (response)
         {
@@ -52,24 +53,26 @@ int main()
             c = gfx_wait();
             Mainscreen.showScore();
             gfx_text(347, 205, pchar);
-            if (c == 'Q') // On left click, change direction of hand
+            if (c == 'Q') // Move left
             {
                 Mainscreen.showScore();
                 gfx_text(347, 205, pchar);
                 x -= 100;
                 if (x < 0)
                 {
+                    // Gameover sequence
                     gfx_clear();
                     gfx_flush();
                     gfx_color(255, 255, 255);
                     gfx_text(350, 250, pchar);
-                    man(SIZE, XSTART, YSTART); // Make watch
+                    man(SIZE, XSTART, YSTART); // Make playable character
                     Mainscreen.showGameover(c);
                     do
                     {
                         c = gfx_wait();
-                        if (c == 32)
+                        if (c == 32) // Spacebar
                         {
+                            // Reset sequence
                             counter = 0;
                             score = 0;
                             sc = to_string(score);
@@ -87,11 +90,12 @@ int main()
                             b = rand() % 7;
                             play = true;
                         }
-                        if (c == 'q')
+                        if (c == 'q') // Exit program
                             play = false;
                     } while (c != 32 && c != 'q');
                 }
                 man(SIZE, x, y);
+                // NPC speed randomizer sequence
                 for (int i = 0; i < 7; i++)
                 {
                     a = rand() % 7 + 1;
@@ -119,24 +123,26 @@ int main()
                         speed[i] += 20;
                         break;
                     }
-                    if (i == b)
+                    if (i == b) // Make escape route
                     {
                     }
                     else
                     {
-                        if (collide(rainMen[i], speed[i], x, y) == true)
+                        if (collide(rainMen[i], speed[i], x, y) == true) // Check for collision
                         {
+                            // Gameover sequence
                             gfx_clear();
                             gfx_flush();
                             gfx_color(255, 255, 255);
                             gfx_text(350, 250, pchar);
-                            man(SIZE, XSTART, YSTART); // Make watch
+                            man(SIZE, XSTART, YSTART); // Make playable character
                             Mainscreen.showGameover(c);
                             do
                             {
                                 c = gfx_wait();
-                                if (c == 32)
+                                if (c == 32) // Spacebar
                                 {
+                                    // Reset sequence
                                     counter = 0;
                                     score = 0;
                                     sc = to_string(score);
@@ -154,32 +160,34 @@ int main()
                                     b = rand() % 7;
                                     play = true;
                                 }
-                                if (c == 'q')
+                                if (c == 'q') // Exit program
                                     play = false;
                             } while (c != 32 && c != 'q');
                         }
-                        rain_man(SIZE, rainMen[i], speed[i]);
+                        rain_man(SIZE, rainMen[i], speed[i]); // Make NPCs
                     }
                 }
             }
-            else if (c == 'S')
+            else if (c == 'S') // Move right
             {
                 Mainscreen.showScore();
                 gfx_text(347, 205, pchar);
                 x += 100;
                 if (x > 700)
                 {
+                    // Gameover sequence
                     gfx_clear();
                     gfx_flush();
                     gfx_color(255, 255, 255);
                     gfx_text(350, 250, pchar);
-                    man(SIZE, XSTART, YSTART); // Make watch
+                    man(SIZE, XSTART, YSTART); // Make playable character
                     Mainscreen.showGameover(c);
                     do
                     {
                         c = gfx_wait();
-                        if (c == 32)
+                        if (c == 32) // Spacebar
                         {
+                            // Reset sequence
                             counter = 0;
                             score = 0;
                             sc = to_string(score);
@@ -197,11 +205,12 @@ int main()
                             b = rand() % 7;
                             play = true;
                         }
-                        if (c == 'q')
+                        if (c == 'q') // Exit program
                             play = false;
                     } while (c != 32 && c != 'q');
                 }
-                man(SIZE, x, y);
+                man(SIZE, x, y); // Make playable character
+                // NPC speed randomizer sequence
                 for (int i = 0; i < 7; i++)
                 {
                     a = rand() % 7 + 1;
@@ -229,24 +238,26 @@ int main()
                         speed[i] += 20;
                         break;
                     }
-                    if (i == b)
+                    if (i == b) // Make escape route
                     {
                     }
                     else
                     {
-                        if (collide(rainMen[i], speed[i], x, y) == true)
+                        if (collide(rainMen[i], speed[i], x, y) == true) // Check for collision
                         {
+                            // Gameover sequence
                             gfx_clear();
                             gfx_flush();
                             gfx_color(255, 255, 255);
                             gfx_text(350, 250, pchar);
-                            man(SIZE, XSTART, YSTART); // Make watch
+                            man(SIZE, XSTART, YSTART); // Make playable character
                             Mainscreen.showGameover(c);
                             do
                             {
                                 c = gfx_wait();
-                                if (c == 32)
+                                if (c == 32) // Spacebar
                                 {
+                                    // Reset sequence
                                     counter = 0;
                                     score = 0;
                                     sc = to_string(score);
@@ -264,17 +275,17 @@ int main()
                                     b = rand() % 7;
                                     play = true;
                                 }
-                                if (c == 'q')
+                                if (c == 'q') // Exit program
                                     play = false;
                             } while (c != 32 && c != 'q');
                         }
-                        rain_man(SIZE, rainMen[i], speed[i]);
+                        rain_man(SIZE, rainMen[i], speed[i]); // Make NPCs
                     }
                 }
             }
-            else if (c == 'q')
+            else if (c == 'q') // Exit program
             {
-                break; // Quit if it is the letter q.
+                break;
             }
             usleep(delay);
         }
@@ -283,7 +294,8 @@ int main()
             gfx_clear();
             Mainscreen.showScore();
             gfx_text(347, 205, pchar);
-            man(SIZE, x, y); // Make watch
+            man(SIZE, x, y); // Make playable character
+            // NPC speed randomizer sequence
             for (int i = 0; i < 7; i++)
             {
                 a = rand() % 7 + 1;
@@ -321,24 +333,26 @@ int main()
                         pchar = sc.c_str();
                     }
                 }
-                if (i == b)
+                if (i == b) // Make escape route
                 {
                 }
                 else
                 {
-                    if (collide(rainMen[i], speed[i], x, y) == true)
+                    if (collide(rainMen[i], speed[i], x, y) == true) // Check for collision
                     {
+                        // Gameover sequence
                         gfx_clear();
                         gfx_flush();
                         gfx_color(255, 255, 255);
                         gfx_text(350, 250, pchar);
-                        man(SIZE, XSTART, YSTART); // Make watch
+                        man(SIZE, XSTART, YSTART); // Make playable character
                         Mainscreen.showGameover(c);
                         do
                         {
                             c = gfx_wait();
-                            if (c == 32)
+                            if (c == 32) // Spacebar
                             {
+                                // Reset sequence
                                 counter = 0;
                                 score = 0;
                                 sc = to_string(score);
@@ -356,11 +370,11 @@ int main()
                                 b = rand() % 7;
                                 play = true;
                             }
-                            if (c == 'q')
+                            if (c == 'q') // Exit program
                                 play = false;
                         } while (c != 32 && c != 'q');
                     }
-                    rain_man(SIZE, rainMen[i], speed[i]);
+                    rain_man(SIZE, rainMen[i], speed[i]); // Make NPCs
                 }
             }
             usleep(delay);
@@ -376,7 +390,7 @@ void man(const int SIZE, int x, int y)
     gfx_fill_circle(x, y - 50, SIZE / 2);
 }
 
-// Make raining men
+// Make NPCs
 void rain_man(const int SIZE, int x, int y)
 {
     gfx_color(200, 100, 0);

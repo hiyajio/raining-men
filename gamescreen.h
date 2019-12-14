@@ -1,7 +1,7 @@
 /* Developer: Juan Sergio Buenviaje
  * Lab: Tuesdays 2:25 - 3:15pm
- * Program: screen.h
- * Description: Class interface for Hallelujah class
+ * Program: gamescreen.h
+ * Description: Class interface for Gamescreen class
  */
 #define RADIUS 60
 #define SZSTART 50
@@ -11,8 +11,9 @@
 #define YSTART 450
 const int SIZE = 50;
 
+// Class interface of Gamescreen
 class Gamescreen
-{ // Class interface of Lifeboard
+{
 public:
     Gamescreen();
     ~Gamescreen();

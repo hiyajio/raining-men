@@ -1,7 +1,7 @@
 /* Developer: Juan Sergio Buenviaje
  * Lab: Tuesdays 2:25 - 3:15pm
- * Program: crossboard.h
- * Description: Class interface for Crossboard class
+ * Program: gamescreen.h
+ * Description: Class interface for Gamescreen class
  */
 #include <iostream>
 #include "gfx2.h"
@@ -12,11 +12,13 @@
 #include <vector>
 using namespace std;
 
+// Connect needed external file
 #include "gamescreen.h"
 
 Gamescreen::Gamescreen()
 {
-    gfx_open(XSIZE, YSIZE, "It's Raining Men!"); // Open a new window for drawing.
+    // Initialize gamescreen
+    gfx_open(XSIZE, YSIZE, "It's Raining Men!");
     gfx_color(200, 200, 0);
 }
 
@@ -26,6 +28,7 @@ Gamescreen::~Gamescreen()
 
 void Gamescreen::showMenu(char c)
 {
+    // Display start menu
     gfx_color(255, 255, 255);
     gfx_rectangle(125, 125, 450, 200);
     gfx_color(200, 200, 0);
@@ -36,6 +39,7 @@ void Gamescreen::showMenu(char c)
     gfx_text(185, 200, "Use the left & right arrow keys to move the man.");
     gfx_text(220, 225, "Avoid... the raining men! Hallelujah!");
 
+    // Terminate program if q pressed
     c = gfx_wait();
     gfx_flush();
 
@@ -47,6 +51,7 @@ void Gamescreen::showMenu(char c)
 
 void Gamescreen::showGameover(char c)
 {
+    // Display end menu
     gfx_rectangle(125, 125, 450, 200);
     gfx_color(255, 255, 255);
     gfx_text(335, 225, "Score");
@@ -55,6 +60,7 @@ void Gamescreen::showGameover(char c)
     gfx_color(255, 0, 0);
     gfx_text(210, 200, "Gameover! Press spacebar twice to restart");
 
+    // Terminate program if q pressed
     c = gfx_wait();
     gfx_flush();
 
@@ -66,6 +72,7 @@ void Gamescreen::showGameover(char c)
 
 void Gamescreen::showScore()
 {
+    // Display score card
     gfx_color(200, 200, 0);
     gfx_circle(350, 190, 40);
     gfx_color(0, 255, 0);
