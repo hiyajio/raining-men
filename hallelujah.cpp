@@ -388,7 +388,7 @@ void man(const int SIZE, int x, int y)
 
 void raining_man(const int SIZE, int x, int y)
 {
-    gfx_color(0, 200, 200);
+    gfx_color(200, 100, 0);
     gfx_fill_rectangle(x - 25, y - 75, SIZE, SIZE);
     gfx_fill_circle(x, y, SIZE / 2);
 }
