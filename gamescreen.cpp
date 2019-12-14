@@ -16,6 +16,8 @@ using namespace std;
 
 Gamescreen::Gamescreen()
 {
+    gfx_open(XSIZE, YSIZE, "It's Raining Men!"); // Open a new window for drawing.
+    gfx_color(200, 200, 0);
 }
 
 Gamescreen::~Gamescreen()

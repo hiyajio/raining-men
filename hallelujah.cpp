@@ -35,9 +35,6 @@ int main()
     a = rand() % 7 + 1;
     b = rand() % 7;
 
-    gfx_open(XSIZE, YSIZE, "It's Raining Men!"); // Open a new window for drawing.
-    gfx_color(200, 200, 0);
-
     man(SIZE, XSTART, YSTART);
     Mainscreen.showMenu(c);
 
