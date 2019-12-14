@@ -10,6 +10,9 @@
 #include <cstdlib>
 #include <math.h>
 #include <vector>
+using namespace std;
+
+#include "raining_man.h"
 
 void man(const int, int, int);
 void raining_man(const int, int, int);
@@ -27,6 +30,7 @@ int main()
     int counter = 0;
     int i = 72;
     bool play = true;
+    Rainman man1;
 
     gfx_open(XSIZE, YSIZE, "It's Raining Men!"); // Open a new window for drawing.
     gfx_color(200, 200, 0);
@@ -46,11 +50,13 @@ int main()
             {
                 x = x - 25;
                 man(SIZE, x, y);
+                man1.show();
             }
             else if (c == 'S')
             {
                 x = x + 25;
                 man(SIZE, x, y);
+                man1.show();
             }
             else if (c == 'q')
             {
@@ -62,6 +68,7 @@ int main()
         {
             gfx_clear();
             man(SIZE, x, y); // Make watch
+            man1.show();
             usleep(delay);
         }
     }
@@ -81,12 +88,12 @@ void man(const int SIZE, int x, int y)
 void raining_man(const int SIZE, int x, int y)
 {
     gfx_color(0, 200, 200);
-    gfx_line((x - (SIZE / 2)), (y + (SIZE / 2)), (x + (SIZE / 2)), (y + (SIZE / 2)));
-    gfx_line((x + (SIZE / 2)), (y + (SIZE / 2)), (x + (SIZE / 2)), (y - (SIZE / 2)));
-    gfx_line((x - (SIZE / 2)), (y - (SIZE / 2)), (x + (SIZE / 2)), (y - (SIZE / 2)));
-    gfx_line((x - (SIZE / 2)), (y + (SIZE / 2)), (x - (SIZE / 2)), (y - (SIZE / 2)));
-    gfx_circle(x, y - SIZE, SIZE / 2);
-    gfx_circle(x, y - SIZE, SIZE / 2);
+    gfx_line((x - (SIZE / 2)), (y + (SIZE / 2) - SIZE), (x + (SIZE / 2)), (y + (SIZE / 2) - SIZE));
+    gfx_line((x + (SIZE / 2)), (y + (SIZE / 2) - SIZE), (x + (SIZE / 2)), (y - (SIZE / 2) - SIZE));
+    gfx_line((x - (SIZE / 2)), (y - (SIZE / 2) - SIZE), (x + (SIZE / 2)), (y - (SIZE / 2) - SIZE));
+    gfx_line((x - (SIZE / 2)), (y + (SIZE / 2) - SIZE), (x - (SIZE / 2)), (y - (SIZE / 2) - SIZE));
+    gfx_circle(x, y, SIZE / 2);
+    gfx_circle(x, y, SIZE / 2);
 }
 
 void menu(const int SIZE, const int XSIZE, const int YSIZE, int x, int y, char c)
