@@ -14,10 +14,10 @@
 #include <string>
 using namespace std;
 
-#include "raining_man.h"
+#include "gamescreen.h"
 
 void man(const int, int, int);
-void raining_man(const int, int, int);
+void rain_man(const int, int, int);
 void menu(char);
 void gameover(char);
 void scoresheet();
@@ -36,8 +36,6 @@ int main()
     srand(time(NULL));
     a = rand() % 7 + 1;
     b = rand() % 7;
-    // Rainman man1(50);
-    // Rainman man1, man2(150), man3(250), man4(350), man5(450), man6(550), man7(650);
 
     gfx_open(XSIZE, YSIZE, "It's Raining Men!"); // Open a new window for drawing.
     gfx_color(200, 200, 0);
@@ -165,7 +163,7 @@ int main()
                                     play = false;
                             } while (c != 32 && c != 'q');
                         }
-                        raining_man(SIZE, rainMen[i], speed[i]);
+                        rain_man(SIZE, rainMen[i], speed[i]);
                     }
                 }
             }
@@ -277,7 +275,7 @@ int main()
                                     play = false;
                             } while (c != 32 && c != 'q');
                         }
-                        raining_man(SIZE, rainMen[i], speed[i]);
+                        rain_man(SIZE, rainMen[i], speed[i]);
                     }
                 }
             }
@@ -371,7 +369,7 @@ int main()
                                 play = false;
                         } while (c != 32 && c != 'q');
                     }
-                    raining_man(SIZE, rainMen[i], speed[i]);
+                    rain_man(SIZE, rainMen[i], speed[i]);
                 }
             }
             usleep(delay);
@@ -388,7 +386,7 @@ void man(const int SIZE, int x, int y)
 }
 
 // Make raining men
-void raining_man(const int SIZE, int x, int y)
+void rain_man(const int SIZE, int x, int y)
 {
     gfx_color(200, 100, 0);
     gfx_fill_rectangle(x - 25, y - 75, SIZE, SIZE);

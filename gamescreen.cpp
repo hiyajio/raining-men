@@ -12,12 +12,12 @@
 #include <vector>
 using namespace std;
 
-#include "raining_man.h"
+#include "gamescreen.h"
 
-Rainman::Rainman()
+Gamescreen::Gamescreen()
 {
 }
 
-Rainman::~Rainman()
+Gamescreen::~Gamescreen()
 {
 }

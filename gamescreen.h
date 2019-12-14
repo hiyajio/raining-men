@@ -1,6 +1,6 @@
 /* Developer: Juan Sergio Buenviaje
  * Lab: Tuesdays 2:25 - 3:15pm
- * Program: raining_man.h
+ * Program: screen.h
  * Description: Class interface for Hallelujah class
  */
 #define RADIUS 60
@@ -11,9 +11,9 @@
 #define YSTART 450
 const int SIZE = 50;
 
-class Rainman
+class Gamescreen
 { // Class interface of Lifeboard
 public:
-    Rainman();
-    ~Rainman();
+    Gamescreen();
+    ~Gamescreen();
 };
