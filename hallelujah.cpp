@@ -36,7 +36,7 @@ int main()
     int rainMen[] = {50, 150, 250, 350, 450, 550, 650};
     int speed[7] = {25};
     srand(time(NULL));
-    a = rand() % 6 + 1;
+    a = rand() % 7 + 1;
     b = rand() % 7;
     // Rainman man1(50);
     // Rainman man1, man2(150), man3(250), man4(350), man5(450), man6(550), man7(650);
@@ -65,26 +65,29 @@ int main()
                 man(SIZE, x, y);
                 for (int i = 0; i < 7; i++)
                 {
-                    a = rand() % 6 + 1;
+                    a = rand() % 7 + 1;
                     switch (a)
                     {
                     case 1:
-                        speed[i] += 5;
+                        speed[i] += 2;
                         break;
                     case 2:
-                        speed[i] += 7;
+                        speed[i] += 5;
                         break;
                     case 3:
-                        speed[i] += 9;
+                        speed[i] += 8;
                         break;
                     case 4:
                         speed[i] += 11;
                         break;
                     case 5:
-                        speed[i] += 13;
+                        speed[i] += 14;
                         break;
                     case 6:
-                        speed[i] += 15;
+                        speed[i] += 17;
+                        break;
+                    case 7:
+                        speed[i] += 20;
                         break;
                     }
                     if (i == b)
@@ -108,26 +111,29 @@ int main()
                 man(SIZE, x, y);
                 for (int i = 0; i < 7; i++)
                 {
-                    a = rand() % 6 + 1;
+                    a = rand() % 7 + 1;
                     switch (a)
                     {
                     case 1:
-                        speed[i] += 5;
+                        speed[i] += 2;
                         break;
                     case 2:
-                        speed[i] += 7;
+                        speed[i] += 5;
                         break;
                     case 3:
-                        speed[i] += 9;
+                        speed[i] += 8;
                         break;
                     case 4:
                         speed[i] += 11;
                         break;
                     case 5:
-                        speed[i] += 13;
+                        speed[i] += 14;
                         break;
                     case 6:
-                        speed[i] += 15;
+                        speed[i] += 17;
+                        break;
+                    case 7:
+                        speed[i] += 20;
                         break;
                     }
                     if (i == b)
@@ -157,7 +163,7 @@ int main()
             man(SIZE, x, y); // Make watch
             for (int i = 0; i < 7; i++)
             {
-                a = rand() % 6 + 1;
+                a = rand() % 7 + 1;
                 switch (a)
                 {
                 case 1:
