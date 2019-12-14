@@ -68,6 +68,40 @@ int main()
                 gfx_text(340, 180, "Score");
                 gfx_text(350, 200, pchar);
                 x -= 100;
+                if (x < 0)
+                {
+                    gfx_clear();
+                    gfx_flush();
+                    gfx_color(255, 255, 255);
+                    gfx_text(240, 225, "Score");
+                    gfx_text(240, 250, pchar);
+                    gameover(c);
+                    do
+                    {
+                        c = gfx_wait();
+                        if (c == 32)
+                        {
+                            counter = 0;
+                            score = 0;
+                            sc = to_string(score);
+                            pchar = sc.c_str();
+                            for (int i = 0; i < 7; i++)
+                            {
+                                rainMen[i] = restart;
+                                restart += 100;
+                                speed[i] = 25;
+                            }
+                            x = 350;
+                            y = 450;
+                            restart = 50;
+                            a = rand() % 7 + 1;
+                            b = rand() % 7;
+                            play = true;
+                        }
+                        if (c == 'q')
+                            play = false;
+                    } while (c != 32 && c != 'q');
+                }
                 man(SIZE, x, y);
                 for (int i = 0; i < 7; i++)
                 {
@@ -144,6 +178,40 @@ int main()
                 gfx_text(340, 180, "Score");
                 gfx_text(350, 200, pchar);
                 x += 100;
+                if (x > 700)
+                {
+                    gfx_clear();
+                    gfx_flush();
+                    gfx_color(255, 255, 255);
+                    gfx_text(240, 225, "Score");
+                    gfx_text(240, 250, pchar);
+                    gameover(c);
+                    do
+                    {
+                        c = gfx_wait();
+                        if (c == 32)
+                        {
+                            counter = 0;
+                            score = 0;
+                            sc = to_string(score);
+                            pchar = sc.c_str();
+                            for (int i = 0; i < 7; i++)
+                            {
+                                rainMen[i] = restart;
+                                restart += 100;
+                                speed[i] = 25;
+                            }
+                            x = 350;
+                            y = 450;
+                            restart = 50;
+                            a = rand() % 7 + 1;
+                            b = rand() % 7;
+                            play = true;
+                        }
+                        if (c == 'q')
+                            play = false;
+                    } while (c != 32 && c != 'q');
+                }
                 man(SIZE, x, y);
                 for (int i = 0; i < 7; i++)
                 {
