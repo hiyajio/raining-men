@@ -382,23 +382,15 @@ int main()
 void man(const int SIZE, int x, int y)
 {
     gfx_color(0, 200, 200);
-    gfx_line((x - (SIZE / 2)), (y + (SIZE / 2)), (x + (SIZE / 2)), (y + (SIZE / 2)));
-    gfx_line((x + (SIZE / 2)), (y + (SIZE / 2)), (x + (SIZE / 2)), (y - (SIZE / 2)));
-    gfx_line((x - (SIZE / 2)), (y - (SIZE / 2)), (x + (SIZE / 2)), (y - (SIZE / 2)));
-    gfx_line((x - (SIZE / 2)), (y + (SIZE / 2)), (x - (SIZE / 2)), (y - (SIZE / 2)));
-    gfx_circle(x, y - SIZE, SIZE / 2);
-    gfx_circle(x, y - SIZE, SIZE / 2);
+    gfx_fill_rectangle(x - 25, y - 25, SIZE, SIZE);
+    gfx_fill_circle(x, y - 50, SIZE / 2);
 }
 
 void raining_man(const int SIZE, int x, int y)
 {
     gfx_color(0, 200, 200);
-    gfx_line((x - (SIZE / 2)), (y + (SIZE / 2) - SIZE), (x + (SIZE / 2)), (y + (SIZE / 2) - SIZE));
-    gfx_line((x + (SIZE / 2)), (y + (SIZE / 2) - SIZE), (x + (SIZE / 2)), (y - (SIZE / 2) - SIZE));
-    gfx_line((x - (SIZE / 2)), (y - (SIZE / 2) - SIZE), (x + (SIZE / 2)), (y - (SIZE / 2) - SIZE));
-    gfx_line((x - (SIZE / 2)), (y + (SIZE / 2) - SIZE), (x - (SIZE / 2)), (y - (SIZE / 2) - SIZE));
-    gfx_circle(x, y, SIZE / 2);
-    gfx_circle(x, y, SIZE / 2);
+    gfx_fill_rectangle(x - 25, y - 75, SIZE, SIZE);
+    gfx_fill_circle(x, y, SIZE / 2);
 }
 
 // Checks to see if there was an impact
@@ -411,17 +403,13 @@ bool impact(int xa, int ya, int x, int y)
 
 void menu(char c)
 {
-    gfx_color(200, 200, 0);
-    gfx_line(150, 150, 550, 150);
-    gfx_line(550, 150, 550, 300);
-    gfx_line(550, 300, 150, 300);
-    gfx_line(150, 300, 150, 150);
     gfx_color(255, 255, 255);
-    gfx_line(175, 175, 525, 175);
-    gfx_line(525, 175, 525, 275);
-    gfx_line(525, 275, 175, 275);
-    gfx_line(175, 275, 175, 175);
+    gfx_rectangle(125, 125, 450, 200);
     gfx_color(200, 200, 0);
+    gfx_fill_rectangle(150, 150, 400, 150);
+    gfx_color(0, 0, 0);
+    gfx_fill_rectangle(175, 175, 350, 100);
+    gfx_color(0, 200, 200);
     gfx_text(200, 200, "Use the left and right arrow keys to move the man.");
     gfx_text(240, 225, "Avoid... the raining men! Hallelujah!");
     man(SIZE, XSTART, YSTART); // Make watch
@@ -437,17 +425,11 @@ void menu(char c)
 
 void gameover(char c)
 {
-    gfx_color(200, 200, 0);
-    gfx_line(150, 150, 550, 150);
-    gfx_line(550, 150, 550, 300);
-    gfx_line(550, 300, 150, 300);
-    gfx_line(150, 300, 150, 150);
     gfx_color(255, 255, 255);
-    gfx_line(175, 175, 525, 175);
-    gfx_line(525, 175, 525, 275);
-    gfx_line(525, 275, 175, 275);
-    gfx_line(175, 275, 175, 175);
+    gfx_rectangle(125, 125, 450, 200);
     gfx_color(200, 200, 0);
+    gfx_rectangle(150, 150, 400, 150);
+    gfx_color(0, 200, 200);
     gfx_text(200, 200, "Gameover! Press spacebar twice to restart");
     man(SIZE, XSTART, YSTART); // Make watch
 
